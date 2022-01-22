@@ -1,22 +1,18 @@
 function minimumSwaps(arr) {
   let count = 0;
-  const entries = Object.entries(arr).map(([key,value]) => {
-    return [`${parseInt(key)+1}`, value];
-  });
-  const indexMap = Object.fromEntries(new Map(entries));
-  for(let i = 0; i < arr.length; i++) {
-    while(indexMap[`${i+1}`] != i+1) {
-      let temp = indexMap[`${indexMap[`${i+1}`]}`];
-      indexMap[`${indexMap[`${i+1}`]}`] = indexMap[`${i+1}`];
-      indexMap[`${i+1}`] = temp;
+  for (let i = 0; i < arr.length; i++) {
+    while (arr[i] != i + 1) {
+      swap(arr,i);
       count++;
     }
   }
   return count;
 }
 
-function swap() {
-
+function swap(arr, index) {
+  let temp = arr[arr[index] - 1];
+  arr[arr[index] - 1] = arr[index];
+  arr[index] = temp;
 }
 
 let arr = [3, 7, 6, 9, 1, 8, 10, 4, 2, 5];
