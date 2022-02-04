@@ -1,0 +1,3 @@
+function arrayManipulation(n, queries) {
+
+}
