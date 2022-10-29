@@ -1,5 +1,5 @@
 function hourglassSum(arr) {
-  let result = -10000;
+  let result = Number.NEGATIVE_INFINITY;
   for (let y = 1; y < arr.length - 1; y++) {
     for (let x = 1; x < arr[y].length - 1; x++) {
       let sum = getSum(arr, x, y);
@@ -21,8 +21,7 @@ function getSum(arr, xCoord, yCoord) {
   const bottomRightValue = arr[yCoord + 1][xCoord + 1];
 
   const upperValuesSum = upperLeftValue + upperMiddleValue + upperRightValue;
-  const bottomValuesSum =
-    bottomLeftValue + bottomMiddleValue + bottomRightValue;
+  const bottomValuesSum = bottomLeftValue + bottomMiddleValue + bottomRightValue;
 
   return arr[yCoord][xCoord] + upperValuesSum + bottomValuesSum;
 }
